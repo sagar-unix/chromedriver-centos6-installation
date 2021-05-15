@@ -257,8 +257,8 @@ if ! installation_status; then
     head -n -1 /opt/google/chrome/google-chrome > temp.txt 
     mv temp.txt /opt/google/chrome/chromedriver
     echo 'exec -a "$0" "$HERE/chromedriver-sandbox" "$@"' >> /opt/google/chrome/chromedriver
-    chmod +x /opt/google/chrome/chromedriver
-    ln -s /opt/google/chrome/chromedriver /usr/bin/chromedriver 
+    chmod +x /opt/google/chrome/chromedriver-sandbox
+    ln -s /opt/google/chrome/chromedriver-sandbox /usr/bin/chromedriver 
     
     popd > /dev/null
     echo "Attempted experimental patching of Chrome to use a relocated glibc version."
