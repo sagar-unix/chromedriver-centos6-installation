@@ -111,7 +111,7 @@ exact_chrome_version=$(curl https://chromedriver.storage.googleapis.com/LATEST_R
 rm chromedriver_linux64.zip
 wget  https://chromedriver.storage.googleapis.com/${exact_chrome_version}/chromedriver_linux64.zip
 unzip -o chromedriver_linux64.zip -d /opt/google/chrome
-mv /opt/google/chrome/chromedriver /opt/google/chrome/chromedriver-sandbox
+cp /opt/google/chrome/chromedriver /opt/google/chrome/chromedriver-sandbox
 
 
 # Install font dependencies, see: https://bugs.chromium.org/p/chromium/issues/detail?id=782161
