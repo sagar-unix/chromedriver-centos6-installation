@@ -83,7 +83,7 @@ then
         echo "Successfully installed Google Chrome!"
         rm -rf ${working_directory}
         popd > /dev/null
-        exit 0
+        #exit 0
     fi
 fi
 
@@ -98,15 +98,15 @@ yum install -y yum-utils
 # There have been issues in the past with the Chrome repository, so we fall back to downloading
 # the latest RPM directly if the package isn't available there. For further details:
 # https://productforums.google.com/forum/#!topic/chrome/xNtfk_wAUC4;context-place=forum/chrome
-yumdownloader google-chrome-stable || \
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-rpm_file=$(echo *.rpm)
-echo "Downloaded ${rpm_file}"
+#yumdownloader google-chrome-stable || \
+#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+#rpm_file=$(echo *.rpm)
+#echo "Downloaded ${rpm_file}"
 
 
 # Install the RPM in a broken state.
-rpm -ih --nodeps ${rpm_file}
-rm ${rpm_file}
+#rpm -ih --nodeps ${rpm_file}
+#rm ${rpm_file}
 
 chrome_version=$(yum info  google-chrome-stable|grep -e "Version\b.*[d\.]*"|cut -d ':' -f2|cut -d "." -f1,2,3|awk '{$1=$1};1')
 exact_chrome_version=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${chrome_version})
